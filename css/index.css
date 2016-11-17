@@ -1,0 +1,366 @@
+/*
+* @Author: zhuhw
+* @Date:   2016-11-16 17:47:00
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-11-17 21:09:04
+*/
+body{
+	height: 1000px;
+}
+/*
+公共的调用精灵图的类，用伪元素的写法
+因为使用的是320的屏幕，所以将背景缩放一半
+ */
+.jd_sprites:before{
+	content: "";
+	background: url(../images/icons/jd-sprites.png) 0 0 no-repeat;
+	background-size: 200px 200px;
+	display: inline-block;
+}
+/*
+让一个盒子进行垂直和水平居中的公共样式
+*/
+.jd_center_all,.jd_center_a:before{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkt-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+.jd_center_y,.jd_cent_y:before{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	-webkt-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+/*让一个盒子垂直居中*/
+
+/* jd 头部开始
+两边固定，中间自适应
+ */
+.jd_header{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	/*left: 0; */
+	/* 给的话就设置不了margin值了 */
+	z-index: 9999;
+
+	/*为了设置不透明度
+	 先设置完全透明
+	*/
+	background: rgba(209,56,68,0);
+
+	/*设置适应屏幕最大值和屏幕最小值*/
+	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+}
+.jd_header .fl{
+	width: 75px;
+	height: 38px;
+	position: relative;
+}
+.jd_header .jd_icons:before{
+	width: 56px;
+	height: 22px;
+	background-position: 0px -108px;
+	
+}
+.jd_header .fr{
+	width: 49px;
+	height: 38px;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 38px;
+	text-align: center;
+}
+.jd_header .center{
+	height: 38px;
+	margin-left: 75px;
+	margin-right: 49px;
+
+	position: relative;
+}
+.jd_header .center input{
+	width: 100%;
+	height: 30px;
+	margin-top: 4px;
+	padding-left: 34px;
+	border-radius: 10px;
+}
+.jd_header .center:before{
+	background-position: -58px -109px;
+	width: 20px;
+	height: 20px;
+	left: 8px;
+}
+/* jd 头部结束 */
+
+ /* jd 焦点图开始 */
+ /*
+ 为了设置轮播图中的
+  */
+.jd_focus{
+	height: 142px;
+	position: relative;
+
+	overflow: hidden;
+}
+.jd_focus .focus_wrap{
+	/* width: 3000px; */
+	/* overflow: hidden; */
+
+
+	position: relative;
+}
+.jd_focus .focus_wrap  li{
+	/* float: left; */
+
+/* 	width: 100%; */
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*
+	让默认的都去左边的位置
+	-100%是拿着父级的宽度进行左移412px
+	 */
+	transform: translateX(-100%);
+
+}
+/*
+设置轮播图js结束的位置
+ */
+.jd_focus .focus_wrap img{
+	height: 142px;
+}
+.jd_focus .focus_points{
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	/*解决行内元素存在元素之前的边距的问题*/
+	font-size: 0;
+}
+.jd_focus .focus_points li{
+	width: 6px;
+	height: 6px;
+	border: 2px solid #fff;
+	/*让其显示在一排*/
+	display: inline-block;
+	margin-right: 8px;
+	border-radius: 3px;
+}
+.jd_focus .focus_points li.active{
+	background-color: red;
+}
+
+ /* jd 焦点图结束 */
+
+ /* jd 导航开始 */
+.jd_nav{
+	
+}
+.jd_nav .nav_wrap{
+	text-align: center;
+} 
+.jd_nav .nav_wrap li{
+	/*给padding值了，不想让整体进行变化
+		就设置了内减
+	*/
+	height: 53px;
+	padding-top: 8px;
+	box-sizing: border-box;
+}
+.jd_nav img{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+}
+ /* jd 导航结束 */
+
+/* jd 京东快报开始 */
+.jd_fastnews{
+	margin-top: 14px;
+	padding-left: 8px;
+	padding-right: 8px;
+	/* background-color: red; */
+}
+.jd_fastnews .fastnews_wrap{
+	height: 30px;
+	/* background-color: green; */
+	border-radius: 10px;
+} 	
+.jd_fastnews .fastnews_wrap .fl{
+	width: 80px;
+	height: 30px;
+	box-sizing: border-box;
+	position: relative;
+
+} 
+.jd_fastnews .fastnews_wrap .fl img{
+	width: 75px;
+	height: 16px;
+	margin-left: 8px;
+}
+.jd_fastnews .fastnews_wrap .fr{
+	width: 41px;
+	height: 30px;
+	font-size: 12px;
+	color: #181818;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 9px;
+} 
+.jd_fastnews .fastnews_wrap .center{
+	margin-left: 80px;
+	margin-right: 41px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #181818;
+	padding-left: 15px;
+	overflow: hidden;
+} 
+
+/* jd 京东快报结束 */
+
+/* jd 秒杀开始 */
+.jd_ms{
+	height: 140px;
+	/* background-color: #ccc; */
+
+
+}
+.jd_ms .jd_ms_title{
+	height: 32px;
+	/* background-color: green; */
+	position: relative;
+}
+.jd_ms .jd_ms_title:before{
+	width: 18px;
+	height: 22px;
+	background-position: -84px -108px;
+	position: absolute;
+	left: 8px;
+}
+.jd_ms .jd_ms_title>.fl>span{
+	font-size: 14px;
+	color: #ca1327;
+	margin-left: 32px;
+	line-height: 32px;
+}
+.jd_ms .jd_ms_title .clock_wrap{
+	/*解决换行带来的字符间距*/
+	font-size: 0px;
+	margin-left: 11px;
+}
+.jd_ms .jd_ms_title .clock_wrap span{
+	width: 9px;
+	height: 18px;
+	background-color: #3d3d3d;
+	font-size: 10px;
+	color: #ffffff;
+	line-height: 32px;
+} 
+.jd_ms .jd_ms_title .clock_wrap span:nth-child(3n+1){
+	border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 2px;
+}
+.jd_ms .jd_ms_title .clock_wrap span:nth-child(3n+2){
+	border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-right: 2px;
+}
+.jd_ms .jd_ms_title .clock_wrap span:nth-child(3n){
+	background: transparent;
+}
+.jd_ms .jd_ms_title .fr{
+	line-height: 32px;
+	font-size: 12px;
+	color: #666666;
+	margin-right: 10px;
+}
+/*秒杀商品主体部分*/
+.jd_ms .jd_ms_content{
+	/* height: 108px; */
+	/* background-color: red; */
+	overflow: scroll;
+}
+.jd_ms .jd_ms_content .product_wrap{
+	width: 1000px;
+	height: 108px;
+}
+.jd_ms .jd_ms_content .product_wrap li{
+	width: 90px;
+	float: left;
+	text-align: center;
+}
+
+.jd_ms .jd_ms_content .product_wrap .items{
+	border-right: 1px solid red;
+}
+.jd_ms .jd_ms_content .product_wrap img{
+	width: 74px;
+	height: 74px;
+	/*让电饭锅水平居中*/
+	margin: 0 auto;
+}
+
+
+/* jd 秒杀结束 */
+
+/* jd 主会场开始 */
+.jd_venue{
+	margin-top: 10px;
+	position: relative;
+}
+/*头部的一条线，设置成公共样式*/
+.topline{
+	position: relative;
+}
+.topline:before{
+	content: "";
+	width: 100%;
+	height: 0;
+	border-top: 1px solid red;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* jd 主会场结束 */
+
+
+/* jd 楼层开始 */
+.floor{
+	/* height: 91px; */
+}
+.floor .fl{
+	padding:10px 8px 10px 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+}
+.floor .info{
+    width: 55%;
+}
+.floor .product-img{
+	width: 45%;
+}
+/*
+ 右边的边框线，使用伪类进行设置
+ */
+.rightline:before{
+	content: "";
+	width: 0;
+	height: 100%;
+	border-right: 1px solid red;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/* jd 楼层结束 */
