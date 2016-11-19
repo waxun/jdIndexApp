@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-19 23:17:19
+* @Last Modified time: 2016-11-19 23:22:32
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -100,7 +100,7 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 
 		if(dY+currentY<maxV&&(dY+currentY)>-(lisWrapHeight-contentBoxHeight+maxV)){
 			//阻止滚屏
-			e.preventDefault();  
+			// e.preventDefault();  
 			   // e.stopPropagation();
     //停止冒泡
 			//跟着进行移动
