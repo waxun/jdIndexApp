@@ -95,6 +95,9 @@ input{
 .w33{
 	width: 33.333333%;
 }
+.mt_46{
+	margin-top: 46px;
+}
 .fl{
 	float: left;
 }
@@ -122,6 +125,8 @@ input{
     -webkit-box-orient: vertical;
 }
 
+
+
 /*
 为了京东快报添加的一个过渡类
  */
@@ -135,3 +140,80 @@ html,body{
 	max-width: 640px;
 	margin: 0 auto;
 }
+
+
+/*
+公共的调用精灵图的类，用伪元素的写法
+因为使用的是320的屏幕，所以将背景缩放一半
+ */
+.jd_sprites:before{
+	content: "";
+	background: url(../images/icons/jd-sprites.png) 0 0 no-repeat;
+	background-size: 200px 200px;
+	display: inline-block;
+}
+/*
+让一个盒子进行垂直和水平居中的公共样式
+*/
+.jd_center_all,.jd_center_a:before{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkt-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+.jd_center_y,.jd_cent_y:before{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	-webkt-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+/*让一个盒子垂直居中*/
+
+
+/*复选框按钮结束*/
+.check_list{
+	width: 40px;
+	height:32px;
+	position: relative;
+}
+.check_list .checkbox{
+	width: 100%;
+	height: 100%;
+}
+
+.check_list input{
+	width: 40px;
+	height: 32px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.5;
+}
+.check_list  .checkbox_pos:before{
+	width: 20px;
+	height: 20px;
+	background-position: -180px -69px;
+}
+.check-list .checked_pos:before{
+	width: 20px;
+	height: 20px;
+	background-position: -180px -89px;
+}
+/*复选框按钮结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

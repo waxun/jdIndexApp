@@ -1,0 +1,111 @@
+/*
+* @Author: zhuhw
+* @Date:   2016-11-18 21:48:39
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-11-18 22:13:23
+*
+* 是一个弹跳的效果
+*/
+@-webkit-keyframes mybounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 1;
+   /*  -webkit-transform: translate3d(0, -3000px, 0);
+   transform: translate3d(0, -3000px, 0); 
+   */
+
+    -webkit-transform: translate3d(-50%,-3000px, 0);
+    transform: translate3d(-50%,-3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+   /*  -webkit-transform: translate3d(0, 25px, 0);
+   transform: translate3d(0, 25px, 0); */
+
+    -webkit-transform: translate3d(-50%,25px, 0);
+    transform: translate3d(-50%,25px, 0);
+  }
+
+  75% {
+   /*  -webkit-transform: translate3d(0, -10px, 0);
+   transform: translate3d(0, -10px, 0); */
+    -webkit-transform: translate3d(-50%,-60%, 0);
+    transform: translate3d(-50%,-60%, 0);
+  }
+
+  90% {
+    /* -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0); */
+
+
+    -webkit-transform: translate3d(-50%,-45%, 0);
+    transform: translate3d(-50%,-35%, 0);
+  }
+
+  to {
+   /*  -webkit-transform: none;
+   transform: none; */
+
+    -webkit-transform: -50%,-50%;
+    transform: -50%,-50%;
+  }
+}
+
+@keyframes mybounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+   /*  -webkit-transform: translate3d(0, -3000px, 0);
+   transform: translate3d(0, -3000px, 0); */
+
+    -webkit-transform: translate3d(-50%,-3000px, 0);
+    transform: translate3d(-50%,-3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+   /*  -webkit-transform: translate3d(0, 25px, 0);
+   transform: translate3d(0, 25px, 0); */
+
+    -webkit-transform: translate3d(-50%,25px, 0);
+    transform: translate3d(-50%,25px, 0);
+  }
+
+  75% {
+   /*  -webkit-transform: translate3d(0, -10px, 0);
+   transform: translate3d(0, -10px, 0); */
+
+    -webkit-transform: translate3d(-50%,-60%, 0);
+    transform: translate3d(-50%,-60%, 0);
+  }
+
+  90% {
+   /*  -webkit-transform: translate3d(0, 5px, 0);
+   transform: translate3d(0, 5px, 0); */
+
+    -webkit-transform: translate3d(-50%,-45%, 0);
+    transform: translate3d(-50%,-35%, 0);
+  }
+
+  to {
+    /* -webkit-transform: none; */
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+}
+
+.mybounceInDown {
+  -webkit-animation-name: mybounceInDown;
+  animation-name: mybounceInDown;
+}
+	/* -webkit-transform: translate(-50%,-50%);
+	    transform: translate(-50%,-50%); */
