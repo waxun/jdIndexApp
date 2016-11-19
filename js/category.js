@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-19 23:22:32
+* @Last Modified time: 2016-11-19 23:25:02
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -67,36 +67,10 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 	});
 
 	lisWrap.addEventListener('touchmove',function(e){
-		// e.preventDefault();  
+
 		endY =  e.touches[0].pageY;
 
 		dY = endY - startY;
-
-		/*拉的过程中最多可以拉动的范围
-		1. 下拉为正，要小于一定的值可以进行拖动
-		2. 上拉为负，要大于一定的值可以进行拖动
-			/*当ul>div才可以这样减，否则直接是max的值
-			ul  - div +maxV  -----先放下
-
-			UL lisWrapHeight    contentBoxHeight  往上是大
-			不是或是且的问题(dY+currentY)>-(lisWrapHeight-contentBoxHeight+maxV)
-
-			dY+currentY
-
-			可以，不用加绝对值
-
-
-
-			1.这边出现当ul的高度小于div的时候，还是可以滑动，但是要归入0的位置
-		*/
-
-		/*if(dY+currentY<maxV&&(dY+currentY)>-(lisWrapHeight-contentBoxHeight+maxV)){
-			//跟着进行移动
-			this.style.webkitTransform = 'translateY('+(dY+currentY)+'px)';
-			//过渡效果
-			this.classList.add('transition-all');
-			}
-		*/
 
 		if(dY+currentY<maxV&&(dY+currentY)>-(lisWrapHeight-contentBoxHeight+maxV)){
 			//阻止滚屏
@@ -113,39 +87,11 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 	lisWrap.addEventListener('touchend',function(){
 		currentY = currentY+dY;
 
-		/*结束的时候要移动了多少就回去多少
-		直接进行执行
-		*/
-
-		/*if((currentY)>0){
-			currentY= 0;
-			this.classList.add('transition-all');
-			this.style.webkitTransform = 'translateY('+currentY+'px)';
-		}else if(currentY<-(lisWrapHeight-contentBoxHeight)){	
-			// console.log('currentY'+currentY);
-			// console.log(-(lisWrapHeight-contentBoxHeight));
-			currenY = -(lisWrapHeight-contentBoxHeight);
-			// console.log(currenY);
-			this.classList.add('transition-all');
-			this.style.webkitTransform = 'translateY('+currenY+'px)';
-			// console.log(currenY); 就是距离的差，将多出的走到相差的距离
-		}*/
-
-
 		if((currentY)>0||(currentY<0&&lisWrapHeight<=contentBoxHeight)){
 			currentY= 0;
 			this.classList.add('transition-all');
 			this.style.webkitTransform = 'translateY('+currentY+'px)';
-		}else /*if(currentY<-(lisWrapHeight-contentBoxHeight)){	*/
-
-			/*
-			1. 当现在的当前的位置为负数的情况下
-			   1.1 当ul的高度 小于等于 div容器的高度时
-			   	   可以下弹一定的距离，但是0 0 点要归位
-			   1.2  当ul的高度大于  div的容器
-			   		让其可以执行的的当前位置的高度等于差距值
-			*/
-		    if(currentY<0&&currentY<-(lisWrapHeight-contentBoxHeight)){
+		}else if(currentY<0&&currentY<-(lisWrapHeight-contentBoxHeight)){
 				currenY = -(lisWrapHeight-contentBoxHeight);
 				this.classList.add('transition-all');
 				this.style.webkitTransform = 'translateY('+currenY+'px)';
@@ -156,8 +102,6 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 
 /*
 侧边栏点击事件
-
-2. 增加右边的内容也跟着变化
 */
 var liHeight = lis[0].offsetHeight;
 var liIndex;
@@ -167,26 +111,15 @@ for(var i=0;i<lis.length;i++){
 	lis[i].addEventListener('click',function(){
 		
 		liIndex = this.dataset['index'];
-		// console.log(liIndex);
-
-		/*如果小于差值，就进行走动*/
+		
 		dis = liIndex*liHeight;
 		if(dis<lisWrapHeight-contentBoxHeight){
 			lisWrap.style.webkitTransform = 'translateY('+-(liIndex*liHeight)+'px)';
 		}
-		/*新增需求
-				productWraps 获取右边的内容的列表，对应的也是下标的值
-
-				进行点击的时候，如果有的话，进行同步右面的值
-
-				就是设置display 显示 和 隐藏
-
-			*/
-			//排他
 			//无商品相关信息的提示
 			var nullInfo = document.querySelector('.null-info');
 			for(var i=0;i<productWraps.length;i++){	
-				// console.log(productWraps.length);
+				
 					productWraps[i].classList.remove('dis-block');	
 					productWraps[i].classList.add('dis-none');
 
@@ -210,11 +143,7 @@ for(var i=0;i<lis.length;i++){
 				nullInfo.classList.remove('dis-none');
 				nullInfo.classList.add('dis-block');
 			}
-		/*
-		排他
-			所有的li都进行清除active样式
-			当前的设置为active样式
-		 */
+		/*当前的tab添加样式*/
 		for(var i=0;i<lis.length;i++){
 			lis[i].classList.remove('active');
 		}
