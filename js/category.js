@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-19 22:39:08
+* @Last Modified time: 2016-11-19 23:05:13
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -43,6 +43,10 @@ touchEvent(productWrap,productWrapHeight,cateRightHeight);
 touchEvent(lisWrap,lisWrapHeight,contentBoxHeight);
 
 
+document.body.ontouchmove=function(e){
+    e.preventDefault();
+}
+
 /**
  * [touchEvent description]
  * @param  {[type]} lisWrap          [ul  lisWrap 移动的元素]
@@ -62,7 +66,7 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 	});
 
 	lisWrap.addEventListener('touchmove',function(e){
-		e.preventDefault();  
+		// e.preventDefault();  
 		endY =  e.touches[0].pageY;
 
 		dY = endY - startY;
@@ -96,6 +100,8 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 		if(dY+currentY<maxV&&(dY+currentY)>-(lisWrapHeight-contentBoxHeight+maxV)){
 			//阻止滚屏
 			 // e.preventDefault();  
+			    e.stopPropagation();
+    //停止冒泡
 			//跟着进行移动
 			this.style.webkitTransform = 'translateY('+(dY+currentY)+'px)';
 			//过渡效果
