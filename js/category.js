@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-19 23:05:13
+* @Last Modified time: 2016-11-19 23:15:32
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -44,6 +44,7 @@ touchEvent(lisWrap,lisWrapHeight,contentBoxHeight);
 
 
 document.body.ontouchmove=function(e){
+	alert(1);
     e.preventDefault();
 }
 
