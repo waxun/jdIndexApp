@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-20 23:14:20
+* @Last Modified time: 2016-11-20 23:31:48
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -69,7 +69,7 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 
 	lisWrap.addEventListener('touchmove',function(e){
   // 阻止触摸事件的默认行为，即阻止滚屏
-    event.preventDefault();
+    // event.preventDefault();
 		endY =  e.touches[0].pageY;
 
 		dY = endY - startY;
