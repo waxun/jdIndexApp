@@ -2,7 +2,7 @@
 * @Author: zhuhw
 * @Date:   2016-11-18 22:46:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-11-20 23:08:58
+* @Last Modified time: 2016-11-20 23:14:20
 */
 /*侧边栏可以拖动的效果
 1. touch事件
@@ -59,7 +59,7 @@ function touchEvent(lisWrap,lisWrapHeight,contentBoxHeight){
 	var startY = 0,endY = 0,dY = 0,currentY=0,maxV = 100;
 		/*让ul进行移动*/
 	lisWrap.addEventListener('touchstart',function(e){
-		 event.preventDefault();   
+		
 		// console.log(e);
 		startY = e.touches[0].pageY;
 
